@@ -293,7 +293,7 @@ class Levels:
 
             self.enemies.append(GhostEnemy.GhostEnemy(surface, 6030, 2100, speed=5))
 
-            generateCrateGrid(surface, self.platforms, 6200, 2236, 1, 1, Images.Tiles.Crates.graveCrate)
+            generateCrateGrid(surface, self.platforms, 6400, 2236, 1, 1, Images.Tiles.Crates.graveCrate)
             # INVISIBLE WALL AT RIGHT LEFT OF MAP
             self.platforms.append(
                 RectPlatform.RectPlatform(surface, 13500, 0, 100, 5000))
