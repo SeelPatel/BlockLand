@@ -73,7 +73,7 @@ class Images:
 
     class Tiles:
         class FloorImages:
-            grassFloorImage1 = pygame.image.load("floorstuff.png").convert()
+            grassFloorImage1 = pygame.image.load("sprites/floorstuff.png").convert()
             grassFloorImage1.set_colorkey((255, 255, 255))
 
             glassFloorImageGrave = pygame.image.load("sprites/GraveGrass.png").convert()
