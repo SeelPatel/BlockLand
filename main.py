@@ -19,7 +19,7 @@ maybe boss
 def pauseScreen(screen: Surface, backgroundSurface: Surface):
     runPause = True
     while runPause:
-        pauseBox = Rect(450, 200, 100, 300)
+        pauseBox = Rect(450, 200, 200, 75)
         for e in event.get():
             if e.type == MOUSEBUTTONDOWN:
                 if pauseBox.collidepoint(mouse.get_pos()[0], mouse.get_pos()[1]) and mouse.get_pressed()[0] == 1:

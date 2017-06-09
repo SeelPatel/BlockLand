@@ -69,6 +69,25 @@ class Images:
         fireBallImage = pygame.image.load("sprites/FireBall.png").convert()
         fireBallImage.set_colorkey((255, 255, 255))
 
+    class ButtonsAndPause:
+        playAgain = pygame.image.load("sprites/buttons/playAgain.png").convert()
+        playAgain.set_colorkey((255, 255, 255))
+
+        playAgainHover = pygame.image.load("sprites/buttons/playAgainHover.png").convert()
+        playAgainHover.set_colorkey((255, 255, 255))
+
+        mainMenu = pygame.image.load("sprites/buttons/mainMenu.png").convert()
+        mainMenu.set_colorkey((255, 255, 255))
+
+        mainMenuHover = pygame.image.load("sprites/buttons/mainMenuHover.png").convert()
+        mainMenuHover.set_colorkey((255, 255, 255))
+
+        nextLevel = pygame.image.load("sprites/buttons/nextLevel.png").convert()
+        nextLevel.set_colorkey((255, 255, 255))
+
+        nextLevelHover = pygame.image.load("sprites/buttons/nextLevelHover.png").convert()
+        nextLevelHover.set_colorkey((255, 255, 255))
+
     class Tiles:
         class FloorImages:
             grassFloorImage1 = pygame.image.load("sprites/floorstuff.png").convert()
@@ -242,7 +261,7 @@ class Levels:
             # print("length enemies ", len(self.enemies))
 
         def generateFloor(self, surface: pygame.Surface):
-            floorGapsList = [4,5,15,16]
+            floorGapsList = [4, 5, 15, 16, 23, 24, 25, 26, 27, 28]
 
             self.platforms.append(RectPlatform.RectPlatform(surface, 744, 2300, 256, 256,
                                                             image=Images.Tiles.FloorImages.glassFloorImageGrave))
@@ -294,6 +313,18 @@ class Levels:
             self.enemies.append(GhostEnemy.GhostEnemy(surface, 6030, 2100, speed=5))
 
             generateCrateGrid(surface, self.platforms, 6400, 2236, 1, 1, Images.Tiles.Crates.graveCrate)
+
+            generateStaircase(self.platforms, surface, 6564, 2300, 5, Images.Tiles.Crates.graveCrate)
+
+            self.enemies.append(batEnemy.BatEnemy(surface, 6950, 1900, 200))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7150, 1900, 200))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7350, 1900, 200))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7550, 1900, 200))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7750, 1900, 200))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7950, 1900, 200))
+
+            generateReverseStaircase(self.platforms, surface, 8424, 2300, 4, Images.Tiles.Crates.graveCrate)
+
             # INVISIBLE WALL AT RIGHT LEFT OF MAP
             self.platforms.append(
                 RectPlatform.RectPlatform(surface, 13500, 0, 100, 5000))

@@ -1,5 +1,7 @@
 import pygame
+
 import Character
+
 
 def loadAnimation(fileName, directory, start, end):
     imageList = []
@@ -73,3 +75,24 @@ def displayPickups(pickupsList: list, cameraX):
                 (cameraX <= pickup.xPos + pickup.width <= cameraX + 1000):
             pickup.display()
         pickupCount += 1
+
+
+def pauseScreen(screen: pygame.Surface, backgroundSurface: pygame.Surface):
+    runPause = True
+    xPos = (screen.get_width() - 350) // 2
+    yPos = (screen.get_height() - 400) // 2
+    while runPause:
+        mainRect = pygame.Rect(xPos, yPos, 350, 400)
+        playAgainRect = pygame.Rect(xPos + 75, yPos + 109, 200, 75)
+        mainMenuRect = pygame.Rect(xPos + 35, yPos + 218, 200, 75)
+        mx, my = pygame.mouse.get_pos()
+        for e in pygame.event.get():
+            if e.type == pygame.MOUSEBUTTONDOWN:
+                if playAgainRect.collidepoint(mx, my):
+                    runPause = False
+            if e.type == pygame.KEYDOWN:
+                if e.key == pygame.K_c:
+                    runPause = False
+        screen.blit(backgroundSurface, (0, 0))
+        pygame.draw.rect(screen, (255, 255, 255), mainRect, 0)
+        pygame.display.flip()
