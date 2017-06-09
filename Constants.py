@@ -2,14 +2,12 @@ import copy
 
 import pygame
 
+import GhostEnemy
 import RectPlatform
-
 import ShooterEnemy
 import ZombieEnemy
-import slimeEnemy
-import GhostEnemy
 import batEnemy
-
+import slimeEnemy
 import tools
 
 pygame.display.init()
@@ -287,6 +285,15 @@ class Levels:
 
             self.enemies.append(batEnemy.BatEnemy(surface,5070,2200,200))
 
+            generateCrateGrid(surface, self.platforms, 5400, 2236, 1, 1, Images.Tiles.Crates.graveCrate)
+
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 5430, 2250, speed=4))
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 5730, 2250, speed=5))
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 6030, 2250, speed=6))
+
+            self.enemies.append(GhostEnemy.GhostEnemy(surface, 6030, 2100, speed=5))
+
+            generateCrateGrid(surface, self.platforms, 6200, 2236, 1, 1, Images.Tiles.Crates.graveCrate)
             # INVISIBLE WALL AT RIGHT LEFT OF MAP
             self.platforms.append(
                 RectPlatform.RectPlatform(surface, 13500, 0, 100, 5000))
