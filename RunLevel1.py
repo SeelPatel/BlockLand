@@ -70,7 +70,7 @@ def start(screen):
                 done = True
             if e.type == KEYDOWN:
                 if e.key == K_ESCAPE: # Open a pause menu
-                    pauseScreen(screen, screen)
+                    tools.pauseScreen(screen, screen)
 
         #Send inputs from user to character for control
         character.playerControl(events, bullets)

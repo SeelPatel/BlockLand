@@ -1,6 +1,7 @@
 import pygame
 
 import Character
+import Constants
 
 
 def loadAnimation(fileName, directory, start, end):
@@ -86,6 +87,7 @@ def pauseScreen(screen: pygame.Surface, backgroundSurface: pygame.Surface):
         playAgainRect = pygame.Rect(xPos + 75, yPos + 109, 200, 75)
         mainMenuRect = pygame.Rect(xPos + 35, yPos + 218, 200, 75)
         mx, my = pygame.mouse.get_pos()
+
         for e in pygame.event.get():
             if e.type == pygame.MOUSEBUTTONDOWN:
                 if playAgainRect.collidepoint(mx, my):
@@ -93,6 +95,9 @@ def pauseScreen(screen: pygame.Surface, backgroundSurface: pygame.Surface):
             if e.type == pygame.KEYDOWN:
                 if e.key == pygame.K_c:
                     runPause = False
+
+        screen.blit(Constants.Images.ButtonsAndPause.mainMenu, (mainRect[0], mainMenuRect[1]))
+
         screen.blit(backgroundSurface, (0, 0))
         pygame.draw.rect(screen, (255, 255, 255), mainRect, 0)
         pygame.display.flip()
