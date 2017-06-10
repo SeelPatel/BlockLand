@@ -102,7 +102,7 @@ def start(screen):
         if character.dead:
             done = True
             pauseAnswer = tools.pauseScreen(screen, screen)
-            if pauseAnswer == "playAgain":
+            if pauseAnswer == "playAgain" or pauseAnswer == "escape":
                 return "level2"
             else:
                 return "mainMenu"

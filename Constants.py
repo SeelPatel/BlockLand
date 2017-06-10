@@ -59,6 +59,8 @@ class Animations:
 
 
 class Images:
+    class Logos:
+        mainLogo = pygame.image.load("sprites/mainLogo.png")
     class Heart:
         mainHeart = pygame.transform.scale(pygame.image.load("sprites/healthHeart.png"), (50, 50))
 
@@ -295,8 +297,6 @@ class Levels:
 
             self.enemies.append(GhostEnemy.GhostEnemy(surface, 6030, 2100, speed=5))
 
-            generateCrateGrid(surface, self.platforms, 6400, 2236, 1, 1, Images.Tiles.Crates.graveCrate)
-
             generateStaircase(self.platforms, surface, 6564, 2300, 5, Images.Tiles.Crates.graveCrate)
 
             self.enemies.append(batEnemy.BatEnemy(surface, 6950, 1900, 200))
@@ -306,7 +306,7 @@ class Levels:
             self.enemies.append(batEnemy.BatEnemy(surface, 7750, 1900, 200))
             self.enemies.append(batEnemy.BatEnemy(surface, 7950, 1900, 200))
 
-            generateReverseStaircase(self.platforms, surface, 8424, 2300, 4, Images.Tiles.Crates.graveCrate)
+            generateReverseStaircase(self.platforms, surface, 8424, 2300, 2, Images.Tiles.Crates.graveCrate)
 
             # INVISIBLE WALL AT RIGHT LEFT OF MAP
             self.platforms.append(

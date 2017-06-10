@@ -52,6 +52,12 @@ class ButtonsAndPause:
     level3Hover = pygame.image.load("sprites/buttons/level3Hover.png").convert()
     level3Hover.set_colorkey((255, 255, 255))
 
+    backButton = pygame.image.load("sprites/buttons/back.png").convert()
+    backButton.set_colorkey((255, 255, 255))
+
+    backHoverButton = pygame.image.load("sprites/buttons/backHover.png").convert()
+    backHoverButton.set_colorkey((255, 255, 255))
+
     menuBackground = pygame.image.load("sprites/buttons/menuBackground.png").convert()
 
 def loadAnimation(fileName, directory, start, end):

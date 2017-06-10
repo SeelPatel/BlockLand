@@ -1,5 +1,6 @@
 from pygame import *
 
+import Constants
 import RunLevel1
 import RunLevel2
 import tools
@@ -28,7 +29,7 @@ def mainMenu(screen: Surface, backX, background: Surface):
     buttonX = (1000 - 200) // 2
 
     playGameRect = Rect(buttonX, 300, 200, 75)
-    aboutRect = Rect(buttonX, 425, 200, 75)
+    aboutRect = Rect(buttonX, 400, 200, 75)
     runMenu = True
     while runMenu:
         mx, my = mouse.get_pos()
@@ -49,6 +50,7 @@ def mainMenu(screen: Surface, backX, background: Surface):
 
         screen.blit(BG.subsurface([int(backXPos), 0, 1000, 700]), (0, 0))
 
+        screen.blit(Constants.Images.Logos.mainLogo, (225, 0))
         if playGameRect.collidepoint(mx, my):
             playGameHover = True
             screen.blit(tools.ButtonsAndPause.playGameHover, (buttonX, 300))
@@ -57,9 +59,9 @@ def mainMenu(screen: Surface, backX, background: Surface):
 
         if aboutRect.collidepoint(mx, my):
             aboutHover = True
-            screen.blit(tools.ButtonsAndPause.aboutGameHover, (buttonX, 425))
+            screen.blit(tools.ButtonsAndPause.aboutGameHover, (buttonX, 400))
         else:
-            screen.blit(tools.ButtonsAndPause.aboutGame, (buttonX, 425))
+            screen.blit(tools.ButtonsAndPause.aboutGame, (buttonX, 400))
 
         display.flip()
 
@@ -73,6 +75,8 @@ def levelChooser(screen: Surface, backX, background: Surface):
     level1Rect = Rect(225, buttonY, 150, 150)
     level2Rect = Rect(425, buttonY, 150, 150)
     level3Rect = Rect(625, buttonY, 150, 150)
+
+    backButtonRect = Rect(400, buttonY + 300, 200, 75)
 
     runMenu = True
     while runMenu:
@@ -90,8 +94,11 @@ def levelChooser(screen: Surface, backX, background: Surface):
                     return "level2"
                 elif level3Rect.collidepoint(mx, my):
                     return "level3"
+                elif backButtonRect.collidepoint(mx, my):
+                    return "mainMenu"
 
         screen.blit(BG.subsurface([int(backXPos), 0, 1000, 700]), (0, 0))
+        screen.blit(Constants.Images.Logos.mainLogo, (225, 0))
 
         if level1Rect.collidepoint(mx, my):
             screen.blit(tools.ButtonsAndPause.level1Hover, (225, buttonY))
@@ -99,16 +106,19 @@ def levelChooser(screen: Surface, backX, background: Surface):
             screen.blit(tools.ButtonsAndPause.level1, (225, buttonY))
 
         if level2Rect.collidepoint(mx, my):
-            aboutHover = True
             screen.blit(tools.ButtonsAndPause.level2Hover, (425, buttonY))
         else:
             screen.blit(tools.ButtonsAndPause.level2, (425, buttonY))
 
         if level3Rect.collidepoint(mx, my):
-            aboutHover = True
             screen.blit(tools.ButtonsAndPause.level3Hover, (625, buttonY))
         else:
             screen.blit(tools.ButtonsAndPause.level3, (625, buttonY))
+
+        if backButtonRect.collidepoint(mx, my):
+            screen.blit(tools.ButtonsAndPause.backHoverButton, (400, buttonY + 300))
+        else:
+            screen.blit(tools.ButtonsAndPause.backButton, (400, buttonY + 300))
 
         display.flip()
 
