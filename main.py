@@ -2,44 +2,128 @@ from pygame import *
 
 import RunLevel1
 import RunLevel2
+import tools
 
 screenDim = screenWidth, screenHeight = (1000, 700)
 
 screen = display.set_mode(screenDim)
 screen.set_alpha(None)
 
+backXPos = 0
+
 """
 Speedup powerup
 main menu
-bullet powerup
-pause screen
 levels
 maybe boss
 """
-def pauseScreen(screen: Surface, backgroundSurface: Surface):
-    runPause = True
-    while runPause:
-        pauseBox = Rect(450, 200, 200, 75)
+
+longBackground = image.load("sprites/longBackground.png").convert()
+
+
+def mainMenu(screen: Surface, backX, background: Surface):
+    BG = background
+    backXPos = backX
+
+    buttonX = (1000 - 200) // 2
+
+    playGameRect = Rect(buttonX, 300, 200, 75)
+    aboutRect = Rect(buttonX, 425, 200, 75)
+    runMenu = True
+    while runMenu:
+        mx, my = mouse.get_pos()
+        playGameHover = False
+        aboutHover = False
+
+        backXPos += 0.3
+
+        if backXPos >= 2000:
+            backXPos = 0
+
         for e in event.get():
             if e.type == MOUSEBUTTONDOWN:
-                if pauseBox.collidepoint(mouse.get_pos()[0], mouse.get_pos()[1]) and mouse.get_pressed()[0] == 1:
-                    runPause = False
-            if e.type == KEYDOWN:
-                if e.key == K_c:
-                    runPause = False
+                if playGameRect.collidepoint(mx, my):
+                    return "levelChooser"
+                elif aboutRect.collidepoint(mx, my):
+                    return "about"
+
+        screen.blit(BG.subsurface([int(backXPos), 0, 1000, 700]), (0, 0))
+
+        if playGameRect.collidepoint(mx, my):
+            playGameHover = True
+            screen.blit(tools.ButtonsAndPause.playGameHover, (buttonX, 300))
+        else:
+            screen.blit(tools.ButtonsAndPause.playGame, (buttonX, 300))
+
+        if aboutRect.collidepoint(mx, my):
+            aboutHover = True
+            screen.blit(tools.ButtonsAndPause.aboutGameHover, (buttonX, 425))
+        else:
+            screen.blit(tools.ButtonsAndPause.aboutGame, (buttonX, 425))
+
+        display.flip()
+
+
+def levelChooser(screen: Surface, backX, background: Surface):
+    BG = background
+    backXPos = backX
+
+    buttonY = (700 - 159) // 2
+
+    level1Rect = Rect(225, buttonY, 150, 150)
+    level2Rect = Rect(425, buttonY, 150, 150)
+    level3Rect = Rect(625, buttonY, 150, 150)
+
+    runMenu = True
+    while runMenu:
+        mx, my = mouse.get_pos()
+        backXPos += 0.3
+
+        if backXPos >= 2000:
+            backXPos = 0
+
+        for e in event.get():
+            if e.type == MOUSEBUTTONDOWN:
+                if level1Rect.collidepoint(mx, my):
                     return "level1"
-        screen.blit(backgroundSurface, (0, 0))
-        draw.rect(screen, (255, 255, 255), pauseBox, 0)
+                elif level2Rect.collidepoint(mx, my):
+                    return "level2"
+                elif level3Rect.collidepoint(mx, my):
+                    return "level3"
+
+        screen.blit(BG.subsurface([int(backXPos), 0, 1000, 700]), (0, 0))
+
+        if level1Rect.collidepoint(mx, my):
+            screen.blit(tools.ButtonsAndPause.level1Hover, (225, buttonY))
+        else:
+            screen.blit(tools.ButtonsAndPause.level1, (225, buttonY))
+
+        if level2Rect.collidepoint(mx, my):
+            aboutHover = True
+            screen.blit(tools.ButtonsAndPause.level2Hover, (425, buttonY))
+        else:
+            screen.blit(tools.ButtonsAndPause.level2, (425, buttonY))
+
+        if level3Rect.collidepoint(mx, my):
+            aboutHover = True
+            screen.blit(tools.ButtonsAndPause.level3Hover, (625, buttonY))
+        else:
+            screen.blit(tools.ButtonsAndPause.level3, (625, buttonY))
+
         display.flip()
 
 
 runningGame = True
-run1 = RunLevel1.start(screen)
 
+levelAnswer = mainMenu(screen, backXPos, longBackground)
 while runningGame:
-    if run1 == "levelBeat":
-        RunLevel2.start(screen)
-    else:
-        pause = pauseScreen(screen,screen)
-        if pause=="level1":
-            RunLevel2.start(screen)
+    if levelAnswer == "endGame":
+        runningGame = False
+    elif levelAnswer == "mainMenu":
+        levelAnswer = mainMenu(screen, backXPos, longBackground)
+    elif levelAnswer == "levelChooser":
+        levelAnswer = levelChooser(screen, backXPos, longBackground)
+    elif levelAnswer == "level1":
+        levelAnswer = RunLevel1.start(screen)
+    elif levelAnswer == "level2":
+        levelAnswer = RunLevel2.start(screen)

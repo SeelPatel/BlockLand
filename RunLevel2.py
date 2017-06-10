@@ -3,10 +3,7 @@ from pygame import *
 import Background
 import Character
 import Constants
-
 import tools
-
-import copy
 
 gameSurface = Constants.gameSurface
 
@@ -88,8 +85,12 @@ def start(screen):
             if e.type == QUIT: # Quit the level
                 done = True
             if e.type == KEYDOWN:
-                if e.key == K_ESCAPE: # Open a pause menu
-                    pauseScreen(screen, screen)
+                if e.key == K_ESCAPE:  # Open a pause menu
+                    pauseAnswer = tools.pauseScreen(screen, screen)
+                    if pauseAnswer == "mainMenu":
+                        return "mainMenu"
+                    elif pauseAnswer == "playAgain" or pauseAnswer == "escape":
+                        return "level2"
 
         #Send inputs from user to character for control
         character.playerControl(events, bullets)
@@ -100,6 +101,11 @@ def start(screen):
         #End game if character dies
         if character.dead:
             done = True
+            pauseAnswer = tools.pauseScreen(screen, screen)
+            if pauseAnswer == "playAgain":
+                return "level2"
+            else:
+                return "mainMenu"
 
         #Control all game objects
         tools.controlEnemies(enemyList, platforms, character, bullets)
@@ -138,6 +144,11 @@ def start(screen):
         fpsCount += 1
         fpsTotal += fps
         averageFps = fpsTotal / fpsCount
+
+        if character.moveToNextLevel:
+            levelEndAnswer = tools.levelEndMenu(screen, screen, 2)
+            return levelEndAnswer
+
         # print(int(character.xPos),int(character.yPos))
         # print("average fps: ", str(averageFps))
         # print(fps)

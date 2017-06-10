@@ -69,24 +69,7 @@ class Images:
         fireBallImage = pygame.image.load("sprites/FireBall.png").convert()
         fireBallImage.set_colorkey((255, 255, 255))
 
-    class ButtonsAndPause:
-        playAgain = pygame.image.load("sprites/buttons/playAgain.png").convert()
-        playAgain.set_colorkey((255, 255, 255))
 
-        playAgainHover = pygame.image.load("sprites/buttons/playAgainHover.png").convert()
-        playAgainHover.set_colorkey((255, 255, 255))
-
-        mainMenu = pygame.image.load("sprites/buttons/mainMenu.png").convert()
-        mainMenu.set_colorkey((255, 255, 255))
-
-        mainMenuHover = pygame.image.load("sprites/buttons/mainMenuHover.png").convert()
-        mainMenuHover.set_colorkey((255, 255, 255))
-
-        nextLevel = pygame.image.load("sprites/buttons/nextLevel.png").convert()
-        nextLevel.set_colorkey((255, 255, 255))
-
-        nextLevelHover = pygame.image.load("sprites/buttons/nextLevelHover.png").convert()
-        nextLevelHover.set_colorkey((255, 255, 255))
 
     class Tiles:
         class FloorImages:

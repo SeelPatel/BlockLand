@@ -56,8 +56,6 @@ def start(screen):
         if platform.tag == "health":
             platform.droppedAlready = False # Reset the platform so new list doesnt have to be generated
 
-    endGameTag = ""
-
     while not done:
         #Set camera position
         cameraX = character.xPos - 500
@@ -70,7 +68,12 @@ def start(screen):
                 done = True
             if e.type == KEYDOWN:
                 if e.key == K_ESCAPE: # Open a pause menu
-                    tools.pauseScreen(screen, screen)
+                    pauseAnswer = tools.pauseScreen(screen, screen)
+                    if pauseAnswer == "playAgain":
+                        return "level1"
+                    elif pauseAnswer == "mainMenu":
+                        return pauseAnswer
+
 
         #Send inputs from user to character for control
         character.playerControl(events, bullets)
@@ -81,6 +84,12 @@ def start(screen):
         #End game if character dies
         if character.dead:
             done = True
+            pauseAnswer = tools.pauseScreen(screen, screen)
+            if pauseAnswer == "playAgain" or pauseAnswer == "escape":
+                return "level1"
+            elif pauseAnswer == "mainMenu":
+                return pauseAnswer
+
 
         #Control all game objects
         tools.controlEnemies(enemyList, platforms, character, bullets)
@@ -111,9 +120,6 @@ def start(screen):
         character.displayBalls(screen)
 
         #Deal with gameEnd events
-        if character.moveToNextLevel:
-            endGameTag = "levelBeat"
-            break
 
         mainClock.tick(60) # Set Frame Cap to 60
         fps = mainClock.get_fps() # Get FPS
@@ -125,9 +131,11 @@ def start(screen):
         fpsTotal += fps
         averageFps = fpsTotal / fpsCount
 
+        if character.moveToNextLevel:
+            levelEndAnswer = tools.levelEndMenu(screen, screen, 1)
+            return levelEndAnswer
 
         # print("average fps: ", str(averageFps))
         # print(fps)
 
-    return endGameTag
 
