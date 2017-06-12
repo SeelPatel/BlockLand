@@ -3,6 +3,7 @@ from pygame import *
 import Constants
 import RunLevel1
 import RunLevel2
+import RunLevel3
 import tools
 
 screenDim = screenWidth, screenHeight = (1000, 700)
@@ -138,3 +139,5 @@ while runningGame:
         levelAnswer = RunLevel1.start(screen)
     elif levelAnswer == "level2":
         levelAnswer = RunLevel2.start(screen)
+    elif levelAnswer == "level3":
+        levelAnswer = RunLevel3.start(screen)

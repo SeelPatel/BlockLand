@@ -308,9 +308,101 @@ class Levels:
 
             generateReverseStaircase(self.platforms, surface, 8424, 2300, 2, Images.Tiles.Crates.graveCrate)
 
+            self.enemies.append(ZombieEnemy.ZombieEnemy(surface, 8900, 2200))
+            self.enemies.append(ZombieEnemy.ZombieEnemy(surface, 9200, 2200))
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 8600, 2200))
+
+            generateStaircase(self.platforms, surface, 9300, 2300, 2, Images.Tiles.Crates.graveCrate)
+
             # INVISIBLE WALL AT RIGHT LEFT OF MAP
             self.platforms.append(
-                RectPlatform.RectPlatform(surface, 13500, 0, 100, 5000))
+                RectPlatform.RectPlatform(surface, 9800, 0, 100, 5000, tag="endGame"))
+
+    class Level3:
+        # 15000 x 5000
+        # starting point at 1000,2300
+        enemies = []
+        platforms = []
+        bullets = []
+
+        def __init__(self, surface: pygame.Surface):
+            self.generateFloor(surface)
+            self.createPlatformsAndEnemies(surface)
+            # print("length plaforms ", len(self.platforms))
+            # print("length enemies ", len(self.enemies))
+
+        def generateFloor(self, surface: pygame.Surface):
+            floorGapsList = [4, 5, 15, 16, 23, 24, 25, 26, 27, 28]
+
+            self.platforms.append(RectPlatform.RectPlatform(surface, 744, 2300, 256, 256,
+                                                            image=Images.Tiles.FloorImages.glassFloorImageGrave))
+            self.platforms.append(RectPlatform.RectPlatform(surface, 488, 2300, 256, 256,
+                                                            image=Images.Tiles.FloorImages.glassFloorImageGrave))
+            # 50 iterations
+            floorCount = 0
+            for x in range(1000, 14000, 256):
+                if floorCount not in floorGapsList:
+                    self.platforms.append(RectPlatform.RectPlatform(surface, x, 2300, 256, 256,
+                                                                    image=Images.Tiles.FloorImages.glassFloorImageGrave))
+                floorCount += 1
+
+        def enemyCopy(self):
+            returnList = []
+            for enemy in self.enemies:
+                returnList.append(copy.copy(enemy))
+            return returnList
+
+        def createPlatformsAndEnemies(self, surface: pygame.Surface):
+            # made left to right
+            # starts atg 1000
+            # WALL TO THE LEFT (INVISIBLE)
+            self.platforms.append(
+                RectPlatform.RectPlatform(surface, 900, 0, 100, 5000))
+
+            # Wall on bottom to judge if character fell off
+            self.platforms.append(
+                RectPlatform.RectPlatform(surface, 0, 3000, 150000, 100, tag="deathPlatform"))
+
+            self.enemies.append(batEnemy.BatEnemy(surface, 2224, 2225, 200))
+
+            generateStaircase(self.platforms, surface, 2536, 2300, 4, Images.Tiles.Crates.graveCrate)
+
+            self.enemies.append(ZombieEnemy.ZombieEnemy(surface, 2836, 2220))
+
+            generateReverseStaircase(self.platforms, surface, 4586, 2300, 4, Images.Tiles.Crates.graveCrate)
+            self.enemies.append(GhostEnemy.GhostEnemy(surface, 3900, 2300))
+            self.enemies.append(GhostEnemy.GhostEnemy(surface, 4586, 2300))
+
+            self.enemies.append(batEnemy.BatEnemy(surface, 5070, 2200, 200))
+
+            generateCrateGrid(surface, self.platforms, 5400, 2236, 1, 1, Images.Tiles.Crates.graveCrate)
+
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 5430, 2250, speed=4))
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 5730, 2250, speed=5))
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 6030, 2250, speed=6))
+
+            self.enemies.append(GhostEnemy.GhostEnemy(surface, 6030, 2100, speed=5))
+
+            generateStaircase(self.platforms, surface, 6564, 2300, 5, Images.Tiles.Crates.graveCrate)
+
+            self.enemies.append(batEnemy.BatEnemy(surface, 6950, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7150, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7350, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7550, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7750, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7950, 1900, 100))
+
+            generateReverseStaircase(self.platforms, surface, 8424, 2300, 2, Images.Tiles.Crates.graveCrate)
+
+            self.enemies.append(ZombieEnemy.ZombieEnemy(surface, 8900, 2200))
+            self.enemies.append(ZombieEnemy.ZombieEnemy(surface, 9200, 2200))
+            self.enemies.append(slimeEnemy.SlimeEnemy(surface, 8600, 2200))
+
+            generateStaircase(self.platforms, surface, 9300, 2300, 2, Images.Tiles.Crates.graveCrate)
+
+            # INVISIBLE WALL AT RIGHT LEFT OF MAP
+            self.platforms.append(
+                RectPlatform.RectPlatform(surface, 9800, 0, 100, 5000, tag="endGame"))
 
 
 def generateStaircase(platforms: list, surface: pygame.Surface, x, y,rowCount : int,imageIn = Images.Tiles.Crates.mainCrate):
