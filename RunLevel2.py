@@ -11,26 +11,7 @@ platformSurface = Constants.platformSurface
 
 Constants.Levels.Level2(gameSurface)
 
-
-def pauseScreen(screen: Surface, backgroundSurface: Surface):
-    runPause = True
-    while runPause:
-        pauseBox = Rect(450, 200, 100, 300)
-        for e in event.get():
-            if e.type == MOUSEBUTTONDOWN:
-                if pauseBox.collidepoint(mouse.get_pos()[0], mouse.get_pos()[1]) and mouse.get_pressed()[0] == 1:
-                    runPause = False
-            if e.type == KEYDOWN:
-                if e.key == K_c:
-                    runPause = False
-        screen.blit(backgroundSurface, (0, 0))
-        draw.rect(screen, (255, 255, 255), pauseBox, 0)
-        display.flip()
-
-
 event.set_allowed(KEYDOWN | QUIT)  # Allows for more efficiant events
-
-
 
 def start(screen):
     gameSurface.fill((0,0,0))
@@ -69,7 +50,7 @@ def start(screen):
     """
     for platform in platforms:
         platform.display(surface=platformSurface)
-        if platform.tag == "health":
+        if platform.tag == "health" or platform.tag == "fireball":
             platform.droppedAlready = False # Reset the platform so new list doesnt have to be generated
 
 
@@ -89,7 +70,7 @@ def start(screen):
                     pauseAnswer = tools.pauseScreen(screen, screen)
                     if pauseAnswer == "mainMenu":
                         return "mainMenu"
-                    elif pauseAnswer == "playAgain" or pauseAnswer == "escape":
+                    elif pauseAnswer == "playAgain":
                         return "level2"
 
         #Send inputs from user to character for control

@@ -299,12 +299,12 @@ class Levels:
 
             generateStaircase(self.platforms, surface, 6564, 2300, 5, Images.Tiles.Crates.graveCrate)
 
-            self.enemies.append(batEnemy.BatEnemy(surface, 6950, 1900, 200))
-            self.enemies.append(batEnemy.BatEnemy(surface, 7150, 1900, 200))
-            self.enemies.append(batEnemy.BatEnemy(surface, 7350, 1900, 200))
-            self.enemies.append(batEnemy.BatEnemy(surface, 7550, 1900, 200))
-            self.enemies.append(batEnemy.BatEnemy(surface, 7750, 1900, 200))
-            self.enemies.append(batEnemy.BatEnemy(surface, 7950, 1900, 200))
+            self.enemies.append(batEnemy.BatEnemy(surface, 6950, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7150, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7350, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7550, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7750, 1900, 100))
+            self.enemies.append(batEnemy.BatEnemy(surface, 7950, 1900, 100))
 
             generateReverseStaircase(self.platforms, surface, 8424, 2300, 2, Images.Tiles.Crates.graveCrate)
 

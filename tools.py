@@ -1,7 +1,5 @@
 import pygame
 
-import Character
-
 pygame.display.init()
 pygame.display.set_mode((0, 0))
 
@@ -81,7 +79,7 @@ def loadNumberFormat(number: int):
         return "0" + str(number)
 
 
-def controlEnemies(enemyList: list, platforms: list, character: Character, bullets: list):
+def controlEnemies(enemyList: list, platforms: list, character, bullets: list):
     enemyCount = 0
     for enemy in enemyList:
         if enemy.delete:

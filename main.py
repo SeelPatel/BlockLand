@@ -47,7 +47,8 @@ def mainMenu(screen: Surface, backX, background: Surface):
                     return "levelChooser"
                 elif aboutRect.collidepoint(mx, my):
                     return "about"
-
+            if e.type == QUIT:
+                return "endGame"
         screen.blit(BG.subsurface([int(backXPos), 0, 1000, 700]), (0, 0))
 
         screen.blit(Constants.Images.Logos.mainLogo, (225, 0))

@@ -53,7 +53,7 @@ def start(screen):
     """
     for platform in platforms:
         platform.display(surface=platformSurface)
-        if platform.tag == "health":
+        if platform.tag == "health" or platform.tag == "fireball":
             platform.droppedAlready = False # Reset the platform so new list doesnt have to be generated
 
     while not done:
