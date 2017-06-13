@@ -355,6 +355,7 @@ class Character:
                         self.goingDown = False
                         self.jumpCount = 0
                         self.canJump = False
+                        self.takeDamage(0, 20)
                     elif self.topCharRect.colliderect(enemy.enemyRect):
                         self.goingUp = False
                         self.goingDown = True
@@ -369,6 +370,7 @@ class Character:
                         self.goingDown = False
                         self.jumpCount = 0
                         self.canJump = False
+                        self.takeDamage(0, 20)
                     elif self.charRect.colliderect(enemy.enemyRect):
                         self.takeDamage(1)
                 elif enemy.tag == "zombieEnemy":
@@ -379,9 +381,11 @@ class Character:
                         self.goingDown = False
                         self.jumpCount = 0
                         self.canJump = False
+                        self.takeDamage(0, 20)
                     elif enemy.jumping and enemy.enemyRect.colliderect(self.charRect):
-                        if self.takeDamage(1):
-                            self.xPos -= 100
+                        self.takeDamage(1)
+                    elif enemy.enemyRect.colliderect(self.charRect):
+                        self.takeDamage(1)
                 elif enemy.tag == "ghostEnemy":
                     if self.bottomCharRect.colliderect(enemy.topEnemyRect) and self.goingDown and not self.goingUp:
                         enemy.dead = True
@@ -389,9 +393,9 @@ class Character:
                         self.goingDown = False
                         self.jumpCount = 0
                         self.canJump = False
+                        self.takeDamage(0, 20)
                     elif enemy.enemyRect.colliderect(self.charRect):
-                        if self.takeDamage(1):
-                            self.xPos -= 100
+                        self.takeDamage(1)
                 elif enemy.tag == "shooterEnemy":
                     if self.bottomCharRect.colliderect(enemy.topEnemyRect) and self.goingDown and not self.goingUp:
                         enemy.dead = True
@@ -399,9 +403,9 @@ class Character:
                         self.goingDown = False
                         self.jumpCount = 0
                         self.canJump = False
+                        self.takeDamage(0, 20)
                     elif enemy.enemyRect.colliderect(self.charRect):
-                        if self.takeDamage(1):
-                            self.xPos -= 100
+                        self.takeDamage(1)
                 elif enemy.tag == "zombieBoss":
                     if self.bottomCharRect.colliderect(enemy.topEnemyRect) and self.goingDown and not self.goingUp:
                         enemy.health -= 1
@@ -410,7 +414,6 @@ class Character:
                         self.jumpCount = 0
                         self.canJump = True
                         self.takeDamage(0, periodStart=90)
-
                         self.spawnGhost(self.mainSurface, enemies, enemy.xPos + enemy.width // 2,
                                         enemy.yPos + enemy.height - 100)
                     elif self.charRect.colliderect(enemy.enemyRect):

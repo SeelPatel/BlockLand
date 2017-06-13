@@ -19,6 +19,8 @@ class ZombieEnemy:
     deadRunOnce = True
     deathCount = 0
     delete = False
+    deathImage = None
+    deathY = 0
 
     goingLeft = True
     goingRight = False
@@ -44,7 +46,7 @@ class ZombieEnemy:
     health = 3
 
     shootCount = 0
-    shootCountLimit = 120
+    shootCountLimit = 180
 
     facingLeft = True
     facingRight = False
@@ -116,11 +118,13 @@ class ZombieEnemy:
             self.setRects()
         else:
             if self.deadRunOnce:
-                self.image = pygame.transform.scale(self.movingAnimation[0], (self.movingAnimation[0].get_width(), 15))
-                self.yPos = self.yPos + self.height
+                self.deathImage = self.movingAnimation[0]
+                self.deathY = self.yPos
                 self.deadRunOnce = False
                 self.enemyRect = pygame.Rect(0, 0, 0, 0)
             self.deathCount += 1
+            self.image = pygame.transform.rotate(self.deathImage, self.deathCount * 3 // 2)
+            self.yPos = self.deathY + self.deathCount * 3 // 2
             if self.deathCount >= 60:
                 self.delete = True
 
