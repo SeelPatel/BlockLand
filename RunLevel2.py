@@ -17,6 +17,7 @@ def start(screen):
     gameSurface.fill((0,0,0))
 
     character = Character.Character(gameSurface, startPos=(1050, 2200), width=43, height=68)
+    character.ballCount = 3
     mainClock = time.Clock()
 
     cameraX = character.xPos - 500

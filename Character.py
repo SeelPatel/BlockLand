@@ -1,10 +1,10 @@
 import pygame
-import os
-import tools
-import FireBall
-import Pickups
 
 import Constants
+import FireBall
+import GhostEnemy
+import Pickups
+
 
 class Character:
     health = 3
@@ -402,6 +402,20 @@ class Character:
                     elif enemy.enemyRect.colliderect(self.charRect):
                         if self.takeDamage(1):
                             self.xPos -= 100
+                elif enemy.tag == "zombieBoss":
+                    if self.bottomCharRect.colliderect(enemy.topEnemyRect) and self.goingDown and not self.goingUp:
+                        enemy.health -= 1
+                        self.goingUp = True
+                        self.goingDown = False
+                        self.jumpCount = 0
+                        self.canJump = True
+                        self.takeDamage(0, periodStart=90)
+
+                        self.spawnGhost(self.mainSurface, enemies, enemy.xPos + enemy.width // 2,
+                                        enemy.yPos + enemy.height - 100)
+                    elif self.charRect.colliderect(enemy.enemyRect):
+                        self.takeDamage(1)
+
 
         for bullet in bullets:
             if bullet.hurtPlayer and not bullet.destroy:
@@ -425,9 +439,12 @@ class Character:
                     pickup.picked = True
                     self.ballCount = 3
 
-    def takeDamage(self, amount: int):
+    def spawnGhost(self, surface, enemies: list, x, y):
+        enemies.append(GhostEnemy.GhostEnemy(surface, x, y, speed=6))
+
+    def takeDamage(self, amount: int, periodStart: int = 0):
         if not self.takeNoDamage:
-            self.invinciblePeriodCount = 0
+            self.invinciblePeriodCount = periodStart
             self.takeNoDamage = True
             self.health -= amount
             return True

@@ -44,7 +44,7 @@ class ZombieEnemy:
     health = 3
 
     shootCount = 0
-    shootCountLimit = 300
+    shootCountLimit = 120
 
     facingLeft = True
     facingRight = False
@@ -62,10 +62,10 @@ class ZombieEnemy:
         self.currentAnimation = self.movingAnimation
 
     def setRects(self):
-        self.enemyRect = pygame.Rect(self.xPos, self.yPos, self.width, self.height)
+        self.enemyRect = pygame.Rect(self.xPos + 30, self.yPos + 10, self.width - 60, self.height - 10)
         self.topEnemyRect = pygame.Rect(self.xPos, self.yPos, self.width, 10)
-        self.leftEnemyRect = pygame.Rect(self.xPos, self.yPos, 10, self.height)
-        self.rightEnemyRect = pygame.Rect(self.xPos + self.width - 10, self.yPos, 10, self.height)
+        self.leftEnemyRect = pygame.Rect(self.xPos - 20, self.yPos, 30, self.height)
+        self.rightEnemyRect = pygame.Rect(self.xPos + self.width - 20, self.yPos, 30, self.height)
         self.bottomEnemyRect = pygame.Rect(self.xPos, self.yPos + self.height - 10, self.width, 10)
 
     def control(self, platforms, bullets, character):
@@ -73,12 +73,13 @@ class ZombieEnemy:
             if self.health <= 0:
                 self.dead = True
 
-            if character.xPos >= self.xPos:
-                self.facingRight = True
-                self.facingLeft = False
-            elif character.xPos <= self.xPos:
-                self.facingLeft = True
-                self.facingRight = False
+            if not (character.xPos <= self.xPos + self.width / 2 <= character.xPos + character.characterWidth):
+                if character.xPos >= self.xPos + self.width / 2:
+                    self.facingRight = True
+                    self.facingLeft = False
+                elif character.xPos <= self.xPos + self.width / 2:
+                    self.facingLeft = True
+                    self.facingRight = False
 
             if self.collidingBottom(platforms):
                 self.yPos = self.getCollidingBottomRect(platforms).yPos - self.height + 1
@@ -102,10 +103,12 @@ class ZombieEnemy:
                 self.goingDown = True
 
             if self.goingRight:
-                self.xPos += self.speed
+                if not self.collidingRight(platforms):
+                    self.xPos += self.speed
 
             if self.goingLeft:
-                self.xPos -= self.speed
+                if not self.collidingLeft(platforms):
+                    self.xPos -= self.speed
 
             if self.goingDown:
                 self.yPos += self.speed
@@ -131,9 +134,7 @@ class ZombieEnemy:
                 bullets.append(
                     FireBall.FireBall(self.mainSurface, self.xPos + 30, self.yPos + 85, hurtPlayer=True,
                                       startRight=False, speed=11))
-
         self.shootCount += 1
-        print(self.shootCount)
 
 
     def animationControl(self):
@@ -157,12 +158,10 @@ class ZombieEnemy:
         else:
             pygame.draw.rect(self.mainSurface, (255, 0, 0), [self.xPos, self.yPos, self.width, self.height], 0)
 
-        pygame.draw.rect(self.mainSurface, (255, 0, 0), [self.xPos, self.yPos, self.width, self.height], 3)
-        pygame.draw.rect(self.mainSurface, (0, 255, 0), self.bottomEnemyRect, 3)
 
     def collidingRight(self, platforms: list):
         for platform in platforms:
-            if platform.xPos - 100 < self.xPos:
+            if platform.xPos - 700 < self.xPos:
                 if platform.checkLeftCollide(self.rightEnemyRect):
                     self.rightColliding = True
                     return True
@@ -180,7 +179,7 @@ class ZombieEnemy:
 
     def collidingTop(self, platforms: list):
         for platform in platforms:
-            if platform.xPos - 100 <= self.xPos <= platform.xPos + platform.width + 100:
+            if platform.xPos - 700 <= self.xPos <= platform.xPos + platform.width + 100:
                 if platform.checkBottomCollide(self.topEnemyRect):
                     return True
         return False

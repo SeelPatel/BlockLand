@@ -355,8 +355,22 @@ class Levels:
 
         def createPlatformsAndEnemies(self, surface: pygame.Surface):
             # made left to right
-            # starts atg 1000
-            self.enemies.append(ZombieBoss.ZombieEnemy(surface, 1500, 1900))
+            # starts at 1000
+            generateCrateGrid(surface, self.platforms, 1200, 1340, 15, 1, image=Images.Tiles.Crates.graveCrate)
+            generateCrateGrid(surface, self.platforms, 1264, 2044, 1, 1, image=Images.Tiles.Crates.graveCrate)
+
+            generateCrateGrid(surface, self.platforms, 2700, 1340, 15, 1, image=Images.Tiles.Crates.graveCrate)
+            generateCrateGrid(surface, self.platforms, 2636, 2044, 1, 1, image=Images.Tiles.Crates.graveCrate)
+
+            # Roof
+            generateCrateGrid(surface, self.platforms, 1200, 1276, 1, 25, image=Images.Tiles.Crates.graveCrate)
+
+            # Top creates
+            generateCrateGrid(surface, self.platforms, 1648, 1980, 1, 1, image=Images.Tiles.Crates.graveCrate)
+            generateCrateGrid(surface, self.platforms, 1950, 1980, 1, 1, image=Images.Tiles.Crates.graveCrate)
+            generateCrateGrid(surface, self.platforms, 2252, 1980, 1, 1, image=Images.Tiles.Crates.graveCrate)
+
+            self.enemies.append(ZombieBoss.ZombieEnemy(surface, 1950, 1900))
 
 def generateStaircase(platforms: list, surface: pygame.Surface, x, y,rowCount : int,imageIn = Images.Tiles.Crates.mainCrate):
     for yCount in range(rowCount+1):

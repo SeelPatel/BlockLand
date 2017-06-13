@@ -1,6 +1,4 @@
 import pygame
-import RectPlatform
-import math
 
 import Constants
 
@@ -62,10 +60,10 @@ class FireBall:
 
     def setRects(self):
         self.mainRect = pygame.Rect(self.xPos,self.yPos,self.width,self.height)
-        self.topRect = pygame.Rect(self.xPos,self.yPos,self.width,15)
-        self.bottomRect = pygame.Rect(self.xPos,self.yPos+self.height/2,self.width,15)
-        self.leftRect = pygame.Rect(self.xPos,self.yPos,15,self.height)
-        self.rightRect = pygame.Rect(self.xPos+self.width/2,self.yPos,15,self.height)
+        self.topRect = pygame.Rect(self.xPos + 5, self.yPos, self.width - 10, 15)
+        self.bottomRect = pygame.Rect(self.xPos + 5, self.yPos + self.height / 2, self.width - 10, 15)
+        self.leftRect = pygame.Rect(self.xPos, self.yPos + 5, 15, self.height - 10)
+        self.rightRect = pygame.Rect(self.xPos + self.width / 2, self.yPos + 5, 15, self.height - 10)
 
 
     def control(self, platforms: list):

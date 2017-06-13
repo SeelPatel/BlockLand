@@ -1,5 +1,7 @@
 import pygame
+
 import Constants
+
 
 class GhostEnemy:
     mainSurface = None
@@ -70,10 +72,7 @@ class GhostEnemy:
 
             self.setRects()
 
-            for bullet in bullets:
-                if self.enemyRect.collidepoint(bullet.xPos, bullet.yPos):
-                    self.dead = True
-                    bullet.destroy = True
+            # ghosts dont get hit by fireballs
         else:
             if self.deadRunOnce:
                 self.deathImage = self.movingAnimation[0]

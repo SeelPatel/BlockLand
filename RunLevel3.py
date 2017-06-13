@@ -1,6 +1,9 @@
+import random
+
 from pygame import *
 
 import Background
+import Bullet
 import Character
 import Constants
 import tools
@@ -14,10 +17,17 @@ Constants.Levels.Level3(gameSurface)
 event.set_allowed(KEYDOWN | QUIT)  # Allows for more efficiant events
 
 
+def checkWin(enemyList: list):
+    for enemy in enemyList:
+        if enemy.tag == "zombieBoss":
+            return False
+
+    return True
+
 def start(screen):
     gameSurface.fill((0, 0, 0))
 
-    character = Character.Character(gameSurface, startPos=(1050, 2200), width=43, height=68)
+    character = Character.Character(gameSurface, startPos=(1300, 2200), width=43, height=68)
     mainClock = time.Clock()
 
     cameraX = character.xPos - 500
@@ -41,6 +51,9 @@ def start(screen):
     done = False
     fpsCount = 0
     fpsTotal = 0
+
+    bulletSpawnCount = 0
+    bulletSpawnCountLimit = 100
 
     platformSurface.fill((0, 0, 0, 0))
 
@@ -87,10 +100,26 @@ def start(screen):
             else:
                 return "mainMenu"
 
+        # Raining bullets generate between x 1300 - 2700 at a y 1300
+        if bulletSpawnCount >= bulletSpawnCountLimit:
+            bullets.append(Bullet.Bullet(gameSurface, random.randint(1300, 2600), 1400, 90,
+                                         image=Constants.Images.Bullet.bulletImage,
+                                         defaultImageAngle=-90, speed=1.5, hurtPlayer=True))
+            bulletSpawnCount = 0
+        bulletSpawnCount += 1
+
         # Control all game objects
         tools.controlEnemies(enemyList, platforms, character, bullets)
         tools.controlBullets(bullets, platforms)
         tools.controlPickups(pickupsList, platforms)
+
+        #
+        if checkWin(enemyList):
+            pauseAnswer = tools.pauseScreen(screen, screen)
+            if pauseAnswer == "mainMenu" or pauseAnswer == "escape":
+                return "mainMenu"
+            elif pauseAnswer == "playAgain":
+                return "level3"
 
         # Control and display background
         backgroundMain.control(cameraX, cameraY)
@@ -131,8 +160,3 @@ def start(screen):
                 return "mainMenu"
             elif pauseAnswer == "playAgain":
                 return "level3"
-
-
-                # print(int(character.xPos),int(character.yPos))
-                # print("average fps: ", str(averageFps))
-                # print(fps)
