@@ -132,6 +132,7 @@ def start(screen):
             elif pauseAnswer == "playAgain":
                 return "level3"
 
+
                 # print(int(character.xPos),int(character.yPos))
                 # print("average fps: ", str(averageFps))
                 # print(fps)

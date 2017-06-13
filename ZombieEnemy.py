@@ -1,5 +1,5 @@
 import pygame
-import tools
+
 import Constants
 
 
@@ -164,6 +164,7 @@ class ZombieEnemy:
                 self.yPos = self.yPos + self.height
                 self.deadRunOnce = False
                 self.enemyRect = pygame.Rect(0,0,0,0)
+                self.topEnemyRect = pygame.Rect(0, 0, 0, 0)
             self.deathCount += 1
             if self.deathCount >= 60:
                 self.delete = True

@@ -1,6 +1,7 @@
 import pygame
 
 import Constants
+import FireBall
 import tools
 
 
@@ -21,17 +22,7 @@ class ZombieEnemy:
 
     goingLeft = True
     goingRight = False
-    goingDown = False
-
-    jumping = False
-    jumpHeight = 0
-    maxJumpHeight = 200
-
-    jumpTimer = 0
-    jumpTimerMax = 150
-
-    jumpingToReachPlayer = False
-    reachPlayerJumpTimer = 0
+    goingDown = True
 
     leftColliding = False
     rightColliding = False
@@ -42,9 +33,8 @@ class ZombieEnemy:
     topEnemyRect = None
     bottomEnemyRect = None
 
-    tag = "zombieEnemy"
+    tag = "zombieBoss"
 
-    jumpingAnimation = []
     movingAnimation = []
     animationCount = 0
     image = None
@@ -53,10 +43,13 @@ class ZombieEnemy:
 
     health = 3
 
+    shootCount = 0
+    shootCountLimit = 300
+
     facingLeft = True
     facingRight = False
 
-    def __init__(self, surface: pygame.Surface, x, y, speed=6, health=3):
+    def __init__(self, surface: pygame.Surface, x, y, speed=4, health=10):
         self.mainSurface = surface
         self.xPos = x
         self.yPos = y
@@ -65,7 +58,6 @@ class ZombieEnemy:
         self.health = health
 
         self.movingAnimation = tools.scaleImages(Constants.Animations.ZombieEnemy.movingAnimation, 3)
-        self.jumpingAnimation = tools.scaleImages(Constants.Animations.ZombieEnemy.jumpingAnimation, 3)
 
         self.currentAnimation = self.movingAnimation
 
@@ -88,7 +80,7 @@ class ZombieEnemy:
                 self.facingLeft = True
                 self.facingRight = False
 
-            if self.collidingBottom(platforms) and not self.jumping:
+            if self.collidingBottom(platforms):
                 self.yPos = self.getCollidingBottomRect(platforms).yPos - self.height + 1
                 self.goingDown = False
                 if self.getCollidingBottomRect(platforms).tag == "deathPlatform":
@@ -101,62 +93,22 @@ class ZombieEnemy:
                         self.goingLeft = True
                         self.goingRight = False
 
-                    self.reachPlayerJumpTimer = 0
                 else:
                     self.goingLeft = False
                     self.goingRight = False
-                    self.reachPlayerJumpTimer += 1
-                    if character.yPos < self.yPos - 50 and self.reachPlayerJumpTimer >= 20:
-                        self.jumping = True
-                        self.jumpHeight = 0
-                        self.jumpingToReachPlayer = True
-
             else:
-                if not self.jumping:
-                    self.goingDown = True
                 self.goingLeft = False
                 self.goingRight = False
+                self.goingDown = True
 
             if self.goingRight:
-                if self.collidingRight(platforms):
-                    if self.jumpTimer >= self.jumpTimerMax:
-                        self.jumping = True
-                        self.jumpHeight = 0
-                        self.jumpTimer = 0
-                else:
-                    self.xPos += self.speed
+                self.xPos += self.speed
 
             if self.goingLeft:
-                if self.collidingLeft(platforms):
-                    if self.jumpTimer >= self.jumpTimerMax:
-                        self.jumping = True
-                        self.jumpHeight = 0
-                        self.jumpTimer = 0
-                else:
-                    self.xPos -= self.speed
+                self.xPos -= self.speed
 
-            if self.goingDown and not self.jumping:
-                self.yPos += self.speed * 1.5
-
-            if self.jumping:
-                self.currentAnimation = self.jumpingAnimation
-
-                self.yPos -= self.speed * 1.5
-                self.goingDown = False
-                self.jumpHeight += self.speed * 2
-                if not self.jumpingToReachPlayer:
-                    if (not self.collidingRight(platforms) and (not self.collidingLeft(platforms)) or (
-                                self.jumpHeight >= self.maxJumpHeight)):
-                        self.jumping = False
-
-                if (self.jumpingToReachPlayer and self.jumpHeight >= self.maxJumpHeight) or (
-                self.collidingTop(platforms)):
-                    self.reachPlayerJumpTimer = 0
-                    self.jumping = False
-                    self.jumpingToReachPlayer = False
-
-            else:
-                self.currentAnimation = self.movingAnimation
+            if self.goingDown:
+                self.yPos += self.speed
 
             self.setRects()
         else:
@@ -169,12 +121,20 @@ class ZombieEnemy:
             if self.deathCount >= 60:
                 self.delete = True
 
-        for bullet in bullets:
-            if self.enemyRect.collidepoint(bullet.xPos, bullet.yPos):
-                self.health -= 1
-                bullet.destroy = True
+        if self.shootCount >= self.shootCountLimit:
+            self.shootCount = 0
+            if self.facingRight:
+                bullets.append(
+                    FireBall.FireBall(self.mainSurface, self.xPos + self.width - 30, self.yPos + 85, hurtPlayer=True,
+                                      startRight=True, speed=11))
+            elif self.facingLeft:
+                bullets.append(
+                    FireBall.FireBall(self.mainSurface, self.xPos + 30, self.yPos + 85, hurtPlayer=True,
+                                      startRight=False, speed=11))
 
-        self.jumpTimer += 1
+        self.shootCount += 1
+        print(self.shootCount)
+
 
     def animationControl(self):
         if self.animationCount >= len(self.currentAnimation) - 1:
@@ -190,14 +150,15 @@ class ZombieEnemy:
 
         if self.image is not None:
             if self.facingLeft:
-                self.mainSurface.blit(pygame.transform.flip(self.image, True, False), (self.xPos - 5, self.yPos))
+                self.mainSurface.blit(pygame.transform.flip(self.image, True, False), (self.xPos - 30, self.yPos - 60))
             else:
                 self.mainSurface.blit(self.image, (
-                    self.xPos - 5, self.yPos))  # -5 and -18 to align the image properly
+                    self.xPos - 30, self.yPos - 60))  # -5 and -18 to align the image properly
         else:
             pygame.draw.rect(self.mainSurface, (255, 0, 0), [self.xPos, self.yPos, self.width, self.height], 0)
 
         pygame.draw.rect(self.mainSurface, (255, 0, 0), [self.xPos, self.yPos, self.width, self.height], 3)
+        pygame.draw.rect(self.mainSurface, (0, 255, 0), self.bottomEnemyRect, 3)
 
     def collidingRight(self, platforms: list):
         for platform in platforms:
