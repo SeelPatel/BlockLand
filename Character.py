@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 import Constants
@@ -393,7 +395,7 @@ class Character:
                         self.goingDown = False
                         self.jumpCount = 0
                         self.canJump = False
-                        self.takeDamage(0, 20)
+                        self.takeDamage(0, 40)
                     elif enemy.enemyRect.colliderect(self.charRect):
                         self.takeDamage(1)
                 elif enemy.tag == "shooterEnemy":
@@ -414,8 +416,12 @@ class Character:
                         self.jumpCount = 0
                         self.canJump = True
                         self.takeDamage(0, periodStart=90)
-                        self.spawnGhost(self.mainSurface, enemies, enemy.xPos + enemy.width // 2,
-                                        enemy.yPos + enemy.height - 100)
+                        if random.randint(0, 1) == 0:
+                            self.spawnGhost(self.mainSurface, enemies, self.xPos + 500,
+                                            enemy.yPos + 50)
+                        else:
+                            self.spawnGhost(self.mainSurface, enemies, self.xPos - 500,
+                                            enemy.yPos + 50)
                     elif self.charRect.colliderect(enemy.enemyRect):
                         self.takeDamage(1)
 

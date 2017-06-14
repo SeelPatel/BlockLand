@@ -94,6 +94,8 @@ class Images:
             graveCrate = pygame.image.load("sprites/crates/graveCrate.png").convert()
             graveCrate.set_colorkey((255, 255, 255))
 
+            hitThisCrate = pygame.image.load("sprites/crates/hitThisCrate.png").convert()
+            hitThisCrate.set_colorkey((255, 255, 255))
 
         endGameBlock = pygame.image.load("sprites/gameEndBlock.png").convert()
         endGameBlock.set_colorkey((255,255,255))
@@ -138,7 +140,7 @@ class Levels:
             # made left to right
             generateCrateGrid(surface,self.platforms,1200,2050,1,2)
             self.platforms.append(
-                RectPlatform.RectPlatform(surface, 1328, 2050, 64,64,image=Images.Tiles.Crates.mainCrate,
+                RectPlatform.RectPlatform(surface, 1328, 2050, 64, 64, image=Images.Tiles.Crates.hitThisCrate,
                                           tag="fireball"))
             self.platforms.append(
                 RectPlatform.RectPlatform(surface, 1392, 2050, 64, 64, image=Images.Tiles.Crates.mainCrate))
@@ -155,7 +157,7 @@ class Levels:
 
             self.platforms.append(
                 RectPlatform.RectPlatform(surface, 1296, 1800, 64, 64,
-                                          image=Images.Tiles.Crates.mainCrate, tag="health"))
+                                          image=Images.Tiles.Crates.hitThisCrate, tag="health"))
 
             generateStaircase(self.platforms, surface, 2024, 2300,4)
 
@@ -339,9 +341,8 @@ class Levels:
                                                             image=Images.Tiles.FloorImages.glassFloorImageGrave))
             self.platforms.append(RectPlatform.RectPlatform(surface, 488, 2300, 256, 256,
                                                             image=Images.Tiles.FloorImages.glassFloorImageGrave))
-            # 50 iterations
             floorCount = 0
-            for x in range(1000, 14000, 256):
+            for x in range(1000, 5000, 256):
                 if floorCount not in floorGapsList:
                     self.platforms.append(RectPlatform.RectPlatform(surface, x, 2300, 256, 256,
                                                                     image=Images.Tiles.FloorImages.glassFloorImageGrave))

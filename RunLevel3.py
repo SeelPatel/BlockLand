@@ -115,7 +115,7 @@ def start(screen):
 
         #
         if checkWin(enemyList):
-            pauseAnswer = tools.pauseScreen(screen, screen)
+            pauseAnswer = tools.pauseScreen(screen, screen, winScreen=True)
             if pauseAnswer == "mainMenu" or pauseAnswer == "escape":
                 return "mainMenu"
             elif pauseAnswer == "playAgain":
@@ -154,9 +154,3 @@ def start(screen):
         fpsTotal += fps
         averageFps = fpsTotal / fpsCount
 
-        if character.moveToNextLevel:
-            pauseAnswer = tools.pauseScreen(screen, screen)
-            if pauseAnswer == "mainMenu":
-                return "mainMenu"
-            elif pauseAnswer == "playAgain":
-                return "level3"

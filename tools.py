@@ -57,6 +57,7 @@ class ButtonsAndPause:
     backHoverButton.set_colorkey((255, 255, 255))
 
     menuBackground = pygame.image.load("sprites/buttons/menuBackground.png").convert()
+    winMenuBackground = pygame.image.load("sprites/buttons/WinningScreen.png").convert()
 
 def loadAnimation(fileName, directory, start, end):
     imageList = []
@@ -132,7 +133,7 @@ def displayPickups(pickupsList: list, cameraX):
         pickupCount += 1
 
 
-def pauseScreen(screen: pygame.Surface, backgroundSurface: pygame.Surface):
+def pauseScreen(screen: pygame.Surface, backgroundSurface: pygame.Surface, winScreen=False):
     runPause = True
     xPos = (screen.get_width() - 350) // 2
     yPos = (screen.get_height() - 400) // 2
@@ -163,7 +164,10 @@ def pauseScreen(screen: pygame.Surface, backgroundSurface: pygame.Surface):
             hoveringMainMenu = True
 
         screen.blit(backgroundSurface, (0, 0))
-        screen.blit(ButtonsAndPause.menuBackground, (xPos, yPos))
+        if winScreen:
+            screen.blit(ButtonsAndPause.winMenuBackground, (xPos, yPos))
+        else:
+            screen.blit(ButtonsAndPause.menuBackground, (xPos, yPos))
 
         if hoveringMainMenu:
             screen.blit(ButtonsAndPause.mainMenuHover, (xPos + 75, yPos + 109))
