@@ -3,6 +3,8 @@
 
 # Imports
 
+import os
+
 from pygame import *
 
 os.environ['SDL_VIDEO_CENTERED'] = '1'  # Center game window on screen
