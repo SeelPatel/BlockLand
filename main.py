@@ -2,7 +2,19 @@
 # This is where the game is run from
 
 # Imports
+import os  # import to center window on screen
+
 from pygame import *
+
+os.environ['SDL_VIDEO_CENTERED'] = '1'  # Center game window on screen
+
+# Display loading screen. Game could take 10-30 seconds to load
+# This is because all levels are loaded before the game starts
+# This ensures the game feels fast when the user is playing it
+intro = image.load("sprites/blockLandIntro.png")  # get image
+screen = display.set_mode((500, 375), NOFRAME)  # Set screen
+screen.blit(intro, (0, 0))  # display intro image
+display.flip()  # display to display
 
 import Constants
 import RunLevel1
@@ -21,6 +33,52 @@ backXPos = 0  # X Position for moving background in the menu screen
 longBackground = image.load("sprites/longBackground.png").convert()
 
 
+# Display the controls to the user
+def controlsScreen(screen: Surface, backX, background: Surface):
+    # Screen is the surface to display the menu on
+    BG = background  # Surface to scroll through for the background
+    backXPos = backX  # X Position of background scrolling
+
+    buttonY = 600  # Preset button Y Position on screen
+
+    # Rects to check collision for buttons
+    backButtonRect = Rect(400, buttonY, 200, 75)
+
+    # Run menu while true
+    runMenu = True
+    while runMenu:
+        # Get mouse position
+        mx, my = mouse.get_pos()
+
+        # Add to scrolling position for background
+        backXPos += 0.3
+
+        # If scrolling goes over 2000, restart it
+        if backXPos >= 2000:
+            backXPos = 0
+
+        # Check if the player clicks on buttons
+        # Returns where to go in game based on user input
+        for e in event.get():
+            if e.type == MOUSEBUTTONDOWN:
+                if backButtonRect.collidepoint(mx, my):
+                    return "mainMenu"
+
+        # Display the scrolling background
+        screen.blit(BG.subsurface([int(backXPos), 0, 1000, 700]), (0, 0))
+        # Display the about screen
+        screen.blit(tools.MenuImages.controlsScreen, (0, 0))
+
+        # Change button images if hovered over, to indicate user input
+        if backButtonRect.collidepoint(mx, my):
+            screen.blit(tools.ButtonsAndPause.backHoverButton, (400, buttonY))
+        else:
+            screen.blit(tools.ButtonsAndPause.backButton, (400, buttonY))
+
+        # Display to screen
+        display.flip()
+
+
 # Function to display main menu screen
 def mainMenu(screen: Surface, backX, background: Surface):
     # Screen is the surface to display the menu on
@@ -32,6 +90,7 @@ def mainMenu(screen: Surface, backX, background: Surface):
     # Rects to check collision for buttons
     playGameRect = Rect(buttonX, 300, 200, 75)  # Rect for PlayGame Button
     aboutRect = Rect(buttonX, 400, 200, 75)  # Rect for About Button
+    controlsRect = Rect(buttonX, 500, 200, 75)
 
     # Run menu while true
     runMenu = True
@@ -53,6 +112,8 @@ def mainMenu(screen: Surface, backX, background: Surface):
                     return "levelChooser"  # Go to level chooser
                 elif aboutRect.collidepoint(mx, my):
                     return "about"  # Go to about screen
+                elif controlsRect.collidepoint(mx, my):
+                    return "controls"
             if e.type == QUIT:
                 return "endGame"  # End the game
 
@@ -71,7 +132,58 @@ def mainMenu(screen: Surface, backX, background: Surface):
         else:
             screen.blit(tools.ButtonsAndPause.aboutGame, (buttonX, 400))
 
+        if controlsRect.collidepoint(mx, my):
+            screen.blit(tools.ButtonsAndPause.controlsHoverButton, (buttonX, 500))
+        else:
+            screen.blit(tools.ButtonsAndPause.controlsButton, (buttonX, 500))
+
         # Put everything on the display
+        display.flip()
+
+
+# Function to display information about the game
+def aboutScreen(screen: Surface, backX, background: Surface):
+    # Screen is the surface to display the menu on
+    BG = background  # Surface to scroll through for the background
+    backXPos = backX  # X Position of background scrolling
+
+    buttonY = 600  # Preset button Y Position on screen
+
+    # Rects to check collision for buttons
+    backButtonRect = Rect(400, buttonY, 200, 75)
+
+    # Run menu while true
+    runMenu = True
+    while runMenu:
+        # Get mouse position
+        mx, my = mouse.get_pos()
+
+        # Add to scrolling position for background
+        backXPos += 0.3
+
+        # If scrolling goes over 2000, restart it
+        if backXPos >= 2000:
+            backXPos = 0
+
+        # Check if the player clicks on buttons
+        # Returns where to go in game based on user input
+        for e in event.get():
+            if e.type == MOUSEBUTTONDOWN:
+                if backButtonRect.collidepoint(mx, my):
+                    return "mainMenu"
+
+        # Display the scrolling background
+        screen.blit(BG.subsurface([int(backXPos), 0, 1000, 700]), (0, 0))
+        # Display the about screen
+        screen.blit(tools.MenuImages.aboutScreen, (0, 0))
+
+        # Change button images if hovered over, to indicate user input
+        if backButtonRect.collidepoint(mx, my):
+            screen.blit(tools.ButtonsAndPause.backHoverButton, (400, buttonY))
+        else:
+            screen.blit(tools.ButtonsAndPause.backButton, (400, buttonY))
+
+        # Display to screen
         display.flip()
 
 
@@ -145,10 +257,10 @@ def levelChooser(screen: Surface, backX, background: Surface):
         display.flip()
 
 
-# Run game while this is true
+# Run game while true
 runningGame = True
 
-#Run main menu and to indicate where player wants to go at beginning
+# Run main menu and to indicate where player wants to go at beginning
 levelAnswer = mainMenu(screen, backXPos, longBackground)
 while runningGame:
     if levelAnswer == "endGame":  # Quit game
@@ -157,6 +269,10 @@ while runningGame:
         levelAnswer = mainMenu(screen, backXPos, longBackground)
     elif levelAnswer == "levelChooser":  # Run the level chooser
         levelAnswer = levelChooser(screen, backXPos, longBackground)
+    elif levelAnswer == "about":  # run the about screen for info
+        levelAnswer = aboutScreen(screen, backXPos, longBackground)
+    elif levelAnswer == "controls":
+        levelAnswer = controlsScreen(screen, backXPos, longBackground)
     elif levelAnswer == "level1":  # run level 1
         levelAnswer = RunLevel1.start(screen)
     elif levelAnswer == "level2":  # run level 2

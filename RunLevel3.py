@@ -8,35 +8,44 @@ import Character
 import Constants
 import tools
 
+# Surface to play game
 gameSurface = Constants.gameSurface
 
+# Surface for platforms
 platformSurface = Constants.platformSurface
 
+# Generate and load level
 Constants.Levels.Level3(gameSurface)
 
 event.set_allowed(KEYDOWN | QUIT)  # Allows for more efficiant events
 
 
+# check if boss is killed
 def checkWin(enemyList: list):
     for enemy in enemyList:
         if enemy.tag == "zombieBoss":
             return False
-
     return True
 
+
+# Start the level when called and draw it on screen provided
 def start(screen):
+    # Reset gameSurface by filling it
     gameSurface.fill((0, 0, 0))
 
+    # Create character
     character = Character.Character(gameSurface, startPos=(1300, 2200), width=43, height=68)
-    mainClock = time.Clock()
+    mainClock = time.Clock()  # Clock used to check and lock fps
 
+    # Position for camera
+    # used to take subsurface of gameSurface
     cameraX = character.xPos - 500
     cameraY = character.yPos - 400
 
+    # create background to display
     backgroundMain = Background.Background(gameSurface, character, cameraX, cameraY, graveScene=True)
 
-    # FIX REFERENCE ISSUE
-
+    # get platform lists from constants
     platforms = Constants.Levels.Level3.platforms
 
     """
@@ -45,16 +54,22 @@ def start(screen):
     last time the level was run
     """
     enemyList = Constants.Levels.Level3.enemyCopy(Constants.Levels.Level3)
+
+    # create lists for pickups and bullets
     pickupsList = []
     bullets = []
 
+    # Run level while this is false
     done = False
+
+    # varibles to calculate average fps
     fpsCount = 0
     fpsTotal = 0
 
     bulletSpawnCount = 0
     bulletSpawnCountLimit = 100
 
+    # Reset platform surface
     platformSurface.fill((0, 0, 0, 0))
 
     """
@@ -63,6 +78,7 @@ def start(screen):
     blit surfaces in view during every iteraton
     """
     for platform in platforms:
+        # reset some varibles on surfaces from last run
         platform.display(surface=platformSurface)
         if platform.tag == "health" or platform.tag == "fireball":
             platform.droppedAlready = False  # Reset the platform so new list doesnt have to be generated
@@ -76,9 +92,13 @@ def start(screen):
         events = event.get()
         for e in events:
             if e.type == QUIT:  # Quit the level
-                done = True
+                pauseAnswer = tools.pauseScreen(screen, screen)
+                if pauseAnswer == "mainMenu":
+                    return "mainMenu"
+                elif pauseAnswer == "playAgain":
+                    return "level3"
             if e.type == KEYDOWN:
-                if e.key == K_ESCAPE:  # Open a pause menu
+                if e.key == K_ESCAPE:  # Open a pause menu and return answer
                     pauseAnswer = tools.pauseScreen(screen, screen)
                     if pauseAnswer == "mainMenu":
                         return "mainMenu"
@@ -94,6 +114,7 @@ def start(screen):
         # End game if character dies
         if character.dead:
             done = True
+            # Open a pause menu and return answer
             pauseAnswer = tools.pauseScreen(screen, screen)
             if pauseAnswer == "playAgain" or pauseAnswer == "escape":
                 return "level3"
@@ -153,4 +174,3 @@ def start(screen):
         fpsCount += 1
         fpsTotal += fps
         averageFps = fpsTotal / fpsCount
-
