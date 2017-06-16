@@ -2,70 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c01fcb87-2de9-46c0-b718-512bf9c10fe4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/BG/BG.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Bush (1).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Bush (2).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Bush (3).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Bush (4).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Crate.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Mushroom_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Mushroom_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Sign_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Sign_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Stone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Tree_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Tree_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Object/Tree_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/18.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/Tiles/9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/png/floorstuff.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__000.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__001.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__002.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__003.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__004.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__005.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__006.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__007.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__008.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/sprites/character/idle/Idle__009.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/tempFile.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sprites/bullet1.png" afterPath="$PROJECT_DIR$/sprites/bullet1.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario001.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario002.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario003.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario004.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario005.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario006.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario007.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario008.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario009.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario010.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario011.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario012.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario013.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario014.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario015.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario016.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario017.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario018.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario019.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario020.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario021.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario022.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario023.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario024.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario025.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario026.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario027.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario028.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario029.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario030.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario031.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario032.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario033.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario034.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario035.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario036.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario037.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario038.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario039.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario040.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario041.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario042.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario043.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario044.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario045.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario046.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario047.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario048.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario049.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario050.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario051.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario052.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario053.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario054.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario055.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario056.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario057.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario058.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario059.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario060.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario061.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario062.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario063.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario064.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario065.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario066.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario067.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario068.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario069.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario070.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario071.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Mario/Mario072.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Background.py" afterPath="$PROJECT_DIR$/Background.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Bullet.py" afterPath="$PROJECT_DIR$/Bullet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Character.py" afterPath="$PROJECT_DIR$/Character.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Constants.py" afterPath="$PROJECT_DIR$/Constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FireBall.py" afterPath="$PROJECT_DIR$/FireBall.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GhostEnemy.py" afterPath="$PROJECT_DIR$/GhostEnemy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pickups.py" afterPath="$PROJECT_DIR$/Pickups.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RectPlatform.py" afterPath="$PROJECT_DIR$/RectPlatform.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunLevel1.py" afterPath="$PROJECT_DIR$/RunLevel1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunLevel2.py" afterPath="$PROJECT_DIR$/RunLevel2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunLevel3.py" afterPath="$PROJECT_DIR$/RunLevel3.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShooterEnemy.py" afterPath="$PROJECT_DIR$/ShooterEnemy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZombieBoss.py" afterPath="$PROJECT_DIR$/ZombieBoss.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZombieEnemy.py" afterPath="$PROJECT_DIR$/ZombieEnemy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/batEnemy.py" afterPath="$PROJECT_DIR$/batEnemy.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/slimeEnemy.py" afterPath="$PROJECT_DIR$/slimeEnemy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools.py" afterPath="$PROJECT_DIR$/tools.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,7 +87,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/fse$aaa.coverage" NAME="aaa Coverage Results" MODIFIED="1496430209997" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/BlockLand$main.coverage" NAME="main Coverage Results" MODIFIED="1497651727799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BlockLand$main.coverage" NAME="main Coverage Results" MODIFIED="1497652474390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fse$Game.coverage" NAME="Game Coverage Results" MODIFIED="1496168981259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../Python-master/Python-master/FSE" />
     <SUITE FILE_PATH="coverage/fse$GhostEnemy.coverage" NAME="GhostEnemy Coverage Results" MODIFIED="1496176355294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/fse$main.coverage" NAME="main Coverage Results" MODIFIED="1496971976492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -88,21 +99,36 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="149">
+              <caret line="149" column="48" lean-forward="true" selection-start-line="149" selection-start-column="48" selection-end-line="149" selection-end-column="48" />
+              <folding>
+                <element signature="e#1486#2946#0" expanded="false" />
+                <element signature="e#3048#5424#0" expanded="false" />
+                <element signature="e#5539#6996#0" expanded="false" />
+                <element signature="e#7102#9612#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="tools.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="284" column="43" lean-forward="false" selection-start-line="284" selection-start-column="43" selection-end-line="284" selection-end-column="43" />
+            <state relative-caret-position="6216">
+              <caret line="296" column="43" lean-forward="false" selection-start-line="296" selection-start-column="43" selection-end-line="296" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZombieEnemy.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZombieEnemy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZombieEnemy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="316" column="34" lean-forward="true" selection-start-line="316" selection-start-column="34" selection-end-line="316" selection-end-column="34" />
+            <state relative-caret-position="231">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -175,7 +201,6 @@
         <option value="$PROJECT_DIR$/Character.py" />
         <option value="$PROJECT_DIR$/RectPlatform.py" />
         <option value="$PROJECT_DIR$/Pickups.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/GhostEnemy.py" />
         <option value="$PROJECT_DIR$/FireBall.py" />
         <option value="$PROJECT_DIR$/Constants.py" />
@@ -185,6 +210,7 @@
         <option value="$PROJECT_DIR$/ShooterEnemy.py" />
         <option value="$PROJECT_DIR$/slimeEnemy.py" />
         <option value="$PROJECT_DIR$/ZombieEnemy.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -670,7 +696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497472040931</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add Comments">
+      <created>1497652115407</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1497652115407</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -683,20 +716,20 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3081761" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3081761" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914045" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -731,7 +764,8 @@
     <MESSAGE value="Made Level 2 bigger" />
     <MESSAGE value="Added Pause Menu and Main Menu" />
     <MESSAGE value="Added Boss fight for final level" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Boss fight for final level" />
+    <MESSAGE value="Add Comments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Comments" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -760,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6825">
           <caret line="327" column="44" lean-forward="false" selection-start-line="327" selection-start-column="44" selection-end-line="327" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -783,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6825">
           <caret line="327" column="44" lean-forward="false" selection-start-line="327" selection-start-column="44" selection-end-line="327" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -799,7 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6825">
           <caret line="327" column="44" lean-forward="false" selection-start-line="327" selection-start-column="44" selection-end-line="327" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,7 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6825">
           <caret line="327" column="44" lean-forward="false" selection-start-line="327" selection-start-column="44" selection-end-line="327" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,7 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -893,7 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
           <caret line="119" column="7" lean-forward="false" selection-start-line="119" selection-start-column="7" selection-end-line="119" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -901,7 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="40" column="37" lean-forward="false" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -909,7 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="73" column="12" lean-forward="false" selection-start-line="73" selection-start-column="12" selection-end-line="73" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -917,21 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="625" column="28" lean-forward="false" selection-start-line="625" selection-start-column="28" selection-end-line="625" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
-          <folding>
-            <element signature="e#76#96#0" expanded="true" />
-            <element signature="e#1183#2643#0" expanded="false" />
-            <element signature="e#2745#5121#0" expanded="false" />
-            <element signature="e#5236#6693#0" expanded="false" />
-            <element signature="e#6799#9309#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -939,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="60" column="86" lean-forward="false" selection-start-line="60" selection-start-column="86" selection-end-line="60" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -947,7 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="90" column="18" lean-forward="false" selection-start-line="90" selection-start-column="18" selection-end-line="90" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,11 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="80" column="49" lean-forward="false" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
-          <folding>
-            <element signature="e#4553#11168#0" expanded="false" />
-            <element signature="e#11196#15723#0" expanded="false" />
-            <element signature="e#15751#18311#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -967,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-649">
           <caret line="76" column="102" lean-forward="false" selection-start-line="76" selection-start-column="102" selection-end-line="76" selection-end-column="102" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -975,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,9 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="153" column="27" lean-forward="true" selection-start-line="153" selection-start-column="27" selection-end-line="153" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -993,7 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1001,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-894">
           <caret line="110" column="49" lean-forward="false" selection-start-line="110" selection-start-column="49" selection-end-line="110" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1009,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="181" column="47" lean-forward="false" selection-start-line="181" selection-start-column="47" selection-end-line="181" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,7 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="186" column="24" lean-forward="false" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1025,23 +1020,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3393">
           <caret line="73" column="30" lean-forward="true" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tools.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="284" column="43" lean-forward="false" selection-start-line="284" selection-start-column="43" selection-end-line="284" selection-end-column="43" />
+        <state relative-caret-position="6216">
+          <caret line="296" column="43" lean-forward="false" selection-start-line="296" selection-start-column="43" selection-end-line="296" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ZombieEnemy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="316" column="34" lean-forward="true" selection-start-line="316" selection-start-column="34" selection-end-line="316" selection-end-column="34" />
+        <state relative-caret-position="231">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="149" column="48" lean-forward="true" selection-start-line="149" selection-start-column="48" selection-end-line="149" selection-end-column="48" />
+          <folding>
+            <element signature="e#1486#2946#0" expanded="false" />
+            <element signature="e#3048#5424#0" expanded="false" />
+            <element signature="e#5539#6996#0" expanded="false" />
+            <element signature="e#7102#9612#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

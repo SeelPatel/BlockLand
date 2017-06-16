@@ -2,7 +2,6 @@
 # This is where the game is run from
 
 # Imports
-import os  # import to center window on screen
 
 from pygame import *
 
@@ -16,6 +15,13 @@ screen = display.set_mode((500, 375), NOFRAME)  # Set screen
 screen.blit(intro, (0, 0))  # display intro image
 display.flip()  # display to display
 
+# Play the background music while loading and continue throughout game
+mixer.init()  # Initialize the music system
+mixer.music.load("backgroundMusic.mp3")  # Select/load music file
+mixer.music.set_volume(0.3)  # Set the volume of the music
+mixer.music.play(-1)  # Set the music on an unlimited loop
+
+# IMPORTS
 import Constants
 import RunLevel1
 import RunLevel2
@@ -31,7 +37,6 @@ backXPos = 0  # X Position for moving background in the menu screen
 
 # Background picture for moving background on menu screen
 longBackground = image.load("sprites/longBackground.png").convert()
-
 
 # Display the controls to the user
 def controlsScreen(screen: Surface, backX, background: Surface):
